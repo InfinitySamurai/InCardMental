@@ -8,21 +8,17 @@ import {
   Paper
 } from "@material-ui/core";
 
-import { GameCard as UiGameCard } from "../GameLogic/GameCard";
+import { GameCard } from "../GameLogic/GameCard";
 import { makeStyles } from "@material-ui/styles";
-import { GameCard } from "./GameCard";
+import { UiGameCard } from "./UiGameCard";
 
 export interface IProps {
-  cardHand: UiGameCard[];
+  cardHand: GameCard[];
 }
 
 const useStyles = makeStyles({
   root: {
     flexGrow: 1
-  },
-  paper: {
-    height: 140,
-    width: 100
   }
 });
 
@@ -35,18 +31,12 @@ export function CardContainer(props: IProps) {
           {props.cardHand.map((card, idx) => {
             return (
               <Grid key={`CardHand${idx}`} item>
-                <GameCard card={card} />
+                <UiGameCard card={card} />
               </Grid>
             );
           })}
         </Grid>
       </Grid>
-      {/* <Card className={styleClasses.card} raised>
-        <CardContent>This is a game card</CardContent>
-      </Card>
-      <Card className={styleClasses.card} raised>
-        <CardContent>This is a game card</CardContent>
-      </Card> */}
     </Grid>
   );
 }
