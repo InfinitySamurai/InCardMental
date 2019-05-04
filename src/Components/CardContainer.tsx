@@ -1,6 +1,4 @@
 import React from "react";
-import { IGameCard } from "../GameLogic/GameCard";
-import { makeStyles } from "@material-ui/styles";
 import {
   Card,
   CardContent,
@@ -9,10 +7,13 @@ import {
   GridListTile,
   Paper
 } from "@material-ui/core";
+
+import { GameCard as UiGameCard } from "../GameLogic/GameCard";
+import { makeStyles } from "@material-ui/styles";
 import { GameCard } from "./GameCard";
 
 export interface IProps {
-  cardHand: IGameCard[];
+  cardHand: UiGameCard[];
 }
 
 const useStyles = makeStyles({
@@ -31,15 +32,10 @@ export function CardContainer(props: IProps) {
     <Grid container className={style.root} spacing={16}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={16}>
-          {props.cardHand.map(card => {
-            const cardData = {
-              ...card,
-              title: card.title.toString(),
-              resource: card.resource.toString()
-            };
+          {props.cardHand.map((card, idx) => {
             return (
-              <Grid item>
-                <GameCard {...cardData} />
+              <Grid key={`CardHand${idx}`} item>
+                <GameCard card={card} />
               </Grid>
             );
           })}

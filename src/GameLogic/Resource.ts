@@ -1,8 +1,7 @@
 enum Resource {
   WOOD = "Wood",
   STONE = "Stone",
-  WHEAT = "Wheat",
-  MEAT = "Meat",
+  FOOD = "Food",
   GOLD = "Gold"
 }
 

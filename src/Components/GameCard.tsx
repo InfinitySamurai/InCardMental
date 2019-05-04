@@ -1,22 +1,22 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
-import { CardTitle } from "material-ui";
+import { GameCard as GameLogicCard } from "../GameLogic/GameCard";
 
 interface IProps {
-  title: string;
-  resource: string;
-  cost: number;
-  amount: number;
+  card: GameLogicCard;
 }
 
 export function GameCard(props: IProps) {
-  const { title, resource, cost, amount } = props;
+  const { card } = props;
   return (
     <Paper>
-      <div>{`Title: ${title}`}</div>
-      <div> {`Resource: ${resource}`}</div>
-      <div> {`Cost: ${cost}`}</div>
-      <div> {`Amount: ${amount}`}</div>
+      <div>{`Title: ${card.title}`}</div>
+      <div>Cost:</div>
+      {/* <div>{card.cost}</div> */}
+      {card.cost.map(cost => {
+        return <div>{`${cost.resource.toString()}: ${cost.amount}`}</div>;
+      })}
+      <div> {`Effect: ${card.effect.description}`}</div>
     </Paper>
   );
 }
