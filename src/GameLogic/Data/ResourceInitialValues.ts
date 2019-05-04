@@ -1,4 +1,4 @@
-import Resource from "../Resource";
+import { Resource } from "../Resource";
 import { ResourceStatus } from "../ResourceTracker";
 
 export const initialValues = generateInitialValues();

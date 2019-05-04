@@ -1,6 +1,6 @@
-import Resource from "./Resource";
-import Structure from "./Structure";
-import Technology from "./Technology";
+import { Resource } from "./Resource";
+import { Structure } from "./Structure";
+import { Technology } from "./Technology";
 
 export interface IEffect {
   effect: () => void;
@@ -13,13 +13,13 @@ export interface ICost {
 }
 
 export interface ICardInitialValues {
-  title: Structure | Technology;
+  title: string;
   cost: ICost[];
   effect: IEffect;
 }
 
 export class GameCard {
-  title: Structure | Technology;
+  title: string;
   cost: ICost[];
   effect: IEffect;
 
@@ -29,9 +29,3 @@ export class GameCard {
     this.effect = initialValues.effect;
   }
 }
-
-const a = new GameCard({
-  title: Structure.FARM,
-  cost: [{ resource: Resource.WOOD, amount: 5 }],
-  effect: { effect: () => true, description: "true thing" }
-});
