@@ -1,6 +1,4 @@
 import { Resource } from "./Resource";
-import { Structure } from "./Structure";
-import { Technology } from "./Technology";
 
 export interface IEffect {
   effect: () => void;
