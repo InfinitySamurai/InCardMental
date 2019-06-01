@@ -5,10 +5,26 @@ export interface ResourceStatus {
   amount: number;
 }
 
+export interface IResourceItem {
+  name: string;
+  amount: number;
+}
+
 export default class ResourceTracker {
-  Resources: Map<Resource, ResourceStatus>;
+  resources: Map<Resource, ResourceStatus>;
 
   constructor(initialResources: Map<Resource, ResourceStatus>) {
-    this.Resources = initialResources;
+    this.resources = initialResources;
   }
+
+  getUnlockedResourcesList = () => {
+    const resourceList: IResourceItem[] = [];
+    this.resources.forEach((resource, key) => {
+      if (resource.unlocked) {
+        resourceList.push({ name: key, amount: resource.amount });
+      }
+    });
+
+    return resourceList;
+  };
 }

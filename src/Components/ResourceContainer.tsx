@@ -1,9 +1,18 @@
 import React from "react";
+import ResourceTracker, { IResourceItem } from "../GameLogic/ResourceTracker";
+import { ResourceElement } from "./ResourceElement";
 
-import 
-
-interface IProps {}
+interface IProps {
+  resources: IResourceItem[];
+}
 
 export function ResourceContainer(props: IProps) {
-  return <div>This is the resource container</div>;
+  const resourceItems = props.resources;
+  return (
+    <>
+      {resourceItems.map(({ name, amount }) => (
+        <ResourceElement resourceName={name} resourceAmount={amount} />
+      ))}
+    </>
+  );
 }
