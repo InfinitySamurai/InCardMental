@@ -17,7 +17,7 @@ export default class ResourceTracker {
     this.resources = initialResources;
   }
 
-  getUnlockedResourcesList = () => {
+  getUnlockedResourcesList() {
     const resourceList: IResourceItem[] = [];
     this.resources.forEach((resource, key) => {
       if (resource.unlocked) {
@@ -26,5 +26,9 @@ export default class ResourceTracker {
     });
 
     return resourceList;
-  };
+  }
+
+  modifyResource(resource: Resource, amount: number) {
+    this.resources.set(resource, { unlocked: true, amount });
+  }
 }

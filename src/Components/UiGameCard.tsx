@@ -17,12 +17,16 @@ interface IProps {
   card: GameCard;
 }
 
+function onClick(event: any, card: GameCard) {
+  card.effect();
+}
+
 export function UiGameCard(props: IProps) {
   const { card } = props;
   const style = useStyles();
 
   return (
-    <Paper className={style.paper}>
+    <Paper className={style.paper} onClick={e => onClick(e, card)}>
       <div>{`Title: ${card.title}`}</div>
       <div>Cost:</div>
       {card.cost.map(cost => {
