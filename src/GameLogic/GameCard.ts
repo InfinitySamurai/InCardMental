@@ -1,10 +1,5 @@
 import { Resource } from "./Resource";
 
-export interface IEffect {
-  effect: () => void;
-  description: string;
-}
-
 export interface ICost {
   resource: Resource;
   amount: number;
@@ -13,17 +8,20 @@ export interface ICost {
 export interface ICardInitialValues {
   title: string;
   cost: ICost[];
-  effect: IEffect;
+  effect: () => any;
+  description: string;
 }
 
 export class GameCard {
   title: string;
   cost: ICost[];
-  effect: IEffect;
+  description: string;
+  effect: () => any;
 
   constructor(initialValues: ICardInitialValues) {
     this.title = initialValues.title;
     this.cost = initialValues.cost;
     this.effect = initialValues.effect;
+    this.description = initialValues.description;
   }
 }

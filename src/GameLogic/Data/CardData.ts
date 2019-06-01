@@ -7,7 +7,8 @@ export const cardData = {
       { resource: Resource.WOOD, amount: 5 },
       { resource: Resource.STONE, amount: 3 }
     ],
-    effect: { effect: () => true, description: "Give Wood" }
+    effect: { effect: () => true },
+    description: "Give Wood"
   },
   QUARRY: {
     title: "Quarry",
@@ -15,7 +16,8 @@ export const cardData = {
       { resource: Resource.WOOD, amount: 5 },
       { resource: Resource.FOOD, amount: 1 }
     ],
-    effect: { effect: () => true, description: "Gives Stone" }
+    effect: { effect: () => true },
+    description: "Gives Stone"
   },
   ALCHEMY: {
     title: "Alchemy",
@@ -24,9 +26,9 @@ export const cardData = {
       { resource: Resource.STONE, amount: 10 }
     ],
     effect: {
-      effect: () => true,
-      description: "Doubles the food supplied by Farms"
-    }
+      effect: () => true
+    },
+    description: "Doubles the food supplied by Farms"
   },
   FARM: {
     title: "Farm",
@@ -34,6 +36,7 @@ export const cardData = {
       { resource: Resource.WOOD, amount: 5 },
       { resource: Resource.STONE, amount: 1 }
     ],
-    effect: { effect: () => true, description: "Gives Food" }
+    effect: { effect: () => true },
+    description: "Gives Food"
   }
 };
