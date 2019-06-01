@@ -28,7 +28,7 @@ export function UiGameCard(props: IProps) {
       {card.cost.map(cost => {
         return <div>{`${cost.resource.toString()}: ${cost.amount}`}</div>;
       })}
-      <div> {`Effect: ${card.effect.description}`}</div>
+      <div> {`Effect: ${card.description}`}</div>
     </Paper>
   );
 }
