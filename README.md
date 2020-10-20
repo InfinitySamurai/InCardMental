@@ -2,6 +2,8 @@
 
 This is an incremental game surrounding the idea of building a deck to gain resources, and resetting frequently.
 
+Read the [design doc](design.md)
+
 # Create React App starter README info
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
