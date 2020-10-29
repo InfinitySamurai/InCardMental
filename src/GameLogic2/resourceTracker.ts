@@ -24,14 +24,11 @@ export class ResourceTracker {
 
     getResources() {
         const resources: any = {}
-        if (this.resources.wood.unlocked) {
-            resources.wood = this.resources.wood.amount
-        }
-        if (this.resources.stone.unlocked) {
-            resources.stone = this.resources.stone.amount
-        }
-        if (this.resources.gold.unlocked) {
-            resources.gold = this.resources.gold.amount
+        for (const key in this.resources) {
+            const resource = this.resources[key]
+            if (resource.unlocked) {
+                resources[key] = resource.amount
+            }
         }
         return resources
     }
