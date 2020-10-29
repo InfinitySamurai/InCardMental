@@ -3,33 +3,35 @@ export interface IResource {
     unlocked: boolean
 }
 
-export interface IResources {
-    wood: IResource
-    stone: IResource
-    gold: IResource
+interface IResourceMap {
+    [key: string]: IResource
 }
 
 export class ResourceTracker {
-    wood = { amount: 0, unlocked: true }
-    stone = { amount: 0, unlocked: true }
-    gold = { amount: 0, unlocked: false }
+    resources: IResourceMap = {
+        wood: { amount: 0, unlocked: true },
+        stone: { amount: 0, unlocked: true },
+        gold: { amount: 0, unlocked: false }
+    }
 
-    constructor(resources?: IResources) {
+    constructor(resources?: IResourceMap) {
         if (resources) {
-            Object.assign(this, resources)
+            for (const key in resources) {
+                this.resources[key] = resources[key]
+            }
         }
     }
 
     getResources() {
         const resources: any = {}
-        if (this.wood.unlocked) {
-            resources.wood = this.wood.amount
+        if (this.resources.wood.unlocked) {
+            resources.wood = this.resources.wood.amount
         }
-        if (this.stone.unlocked) {
-            resources.stone = this.stone.amount
+        if (this.resources.stone.unlocked) {
+            resources.stone = this.resources.stone.amount
         }
-        if (this.gold.unlocked) {
-            resources.gold = this.gold.amount
+        if (this.resources.gold.unlocked) {
+            resources.gold = this.resources.gold.amount
         }
         return resources
     }
