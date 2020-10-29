@@ -1,5 +1,4 @@
-import {Deck} from '../deck'
-
+import { Deck } from '../deck'
 
 describe('Deck class', () => {
     test('Can be instantiated', () => {

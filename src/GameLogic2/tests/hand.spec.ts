@@ -1,5 +1,4 @@
-import {Hand} from '../hand'
-
+import { Hand } from '../hand'
 
 describe('Hand class', () => {
     test('Can be instantiated', () => {
