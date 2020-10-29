@@ -1,16 +1,24 @@
-import { Resources } from '../resources'
+import { ResourceTracker } from '../resources'
 
 describe('Game Resources', () => {
     test('Can be instantiated', () => {
-        const resources = new Resources()
-        expect(resources).toBeTruthy()
+        const resourceTracker = new ResourceTracker()
+        expect(resourceTracker).toBeTruthy()
     })
 
     test('New resource tracker has 0 values for resources', () => {
-        const resources = new Resources()
+        const resourceTracker = new ResourceTracker()
 
-        expect(resources.wood).toEqual(0)
-        expect(resources.stone).toEqual(0)
-        expect(resources.gold).toEqual(0)
+        expect(resourceTracker.resources.wood).toEqual(0)
+        expect(resourceTracker.resources.stone).toEqual(0)
+        expect(resourceTracker.resources.gold).toEqual(0)
+    })
+
+    test('New resource tracker can be instantiated with values', () => {
+        const resourceTracker = new ResourceTracker({wood:5, stone:10, gold:50})
+
+        expect(resourceTracker.resources.wood).toEqual(5)
+        expect(resourceTracker.resources.stone).toEqual(10)
+        expect(resourceTracker.resources.gold).toEqual(50)
     })
 })
