@@ -21,4 +21,11 @@ describe('Resource tracker class', () => {
         expect(resourceTracker.stone).toEqual(10)
         expect(resourceTracker.gold).toEqual(50)
     })
+
+    test('Can retrieve all unlocked resources from the resource tracker', () => {
+        const resourceTracker = new ResourceTracker({wood:{amount:5, unlocked: true}, stone:{amount:10, unlocked: true}, gold:{amount:50, unlocked: false}})
+
+    })
 })
+
+
