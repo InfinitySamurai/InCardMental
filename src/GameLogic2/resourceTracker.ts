@@ -22,8 +22,8 @@ export class ResourceTracker {
         }
     }
 
-    getResources() {
-        const resources: any = {}
+    getResources(): { [key: string]: number } {
+        const resources: { [key: string]: number } = {}
         for (const key in this.resources) {
             const resource = this.resources[key]
             if (resource.unlocked) {
