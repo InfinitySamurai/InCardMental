@@ -15,7 +15,11 @@ describe('Resource tracker class', () => {
     })
 
     test('New resource tracker can be instantiated with values', () => {
-        const resourceTracker = new ResourceTracker({ wood: 5, stone: 10, gold: 50 })
+        const resourceTracker = new ResourceTracker({
+            wood: { amount: 5, unlocked: true },
+            stone: { amount: 10, unlocked: true },
+            gold: { amount: 50, unlocked: false }
+        })
 
         expect(resourceTracker.wood).toEqual(5)
         expect(resourceTracker.stone).toEqual(10)
