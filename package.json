@@ -14,7 +14,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test-engine": "jest --testPathPattern src/GameLogic2/"
+    "test-engine": "jest --testPathPattern src/GameLogic2/",
+    "lint-engine": "eslint src/GameLogic2/**/*.ts --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
