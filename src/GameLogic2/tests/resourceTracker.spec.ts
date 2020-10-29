@@ -45,4 +45,15 @@ describe('Resource tracker class', () => {
 
         expect(resourceTracker.getResources()).toEqual({})
     })
+
+    test("Can add arbitrary new resources if they're passed in", () => {
+        const resourceTracker = new ResourceTracker({
+            wood: { amount: 5, unlocked: false },
+            stone: { amount: 10, unlocked: false },
+            gold: { amount: 50, unlocked: false },
+            orichalchum: { amount: 20, unlocked: false }
+        })
+
+        expect(resourceTracker.resources.orichalchum.amount).toEqual(20)
+    })
 })
